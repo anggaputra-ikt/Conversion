@@ -1,0 +1,37 @@
+﻿@page
+@using Application.Enum;
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container">
+    <h1 class="h3">Konversi Satuan Panjang</h1>
+    <form method="post">
+        <div class="row mb-3">
+            <div class="col-3">
+                <label asp-for="ConversionEnumFromValue" class="col-form-label"></label>
+                <input asp-for="ConversionEnumFromValue" type="text" class="form-control" placeholder="Angka" />
+            </div>
+            <div class="col-3">
+                <label asp-for="ConversionEnumFrom" class="col-form-label"></label>
+                <select asp-for="ConversionEnumFrom" asp-items="Html.GetEnumSelectList<EConversion>()" class="form-select">
+                    <option value="">Pilih Konversi</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label asp-for="ConversionEnumToValue" class="col-form-label"></label>
+                <input asp-for="ConversionEnumToValue" type="text" class="form-control" placeholder="Angka" disabled />
+            </div>
+            <div class="col-3">
+                <label asp-for="ConversionEnumTo" class="col-form-label"></label>
+                <select asp-for="ConversionEnumTo" asp-items="Html.GetEnumSelectList<EConversion>()" class="form-select">
+                    <option value="">Pilih Konversi</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-secondary mt-2">Konversi</button>
+    </form>
+</div>
